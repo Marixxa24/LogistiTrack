@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://api-logistica-chi.vercel.app/api/ordenes';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api/ordenes';
 
 // Obtener todas las órdenes
 export const obtenerOrdenes = async () => {
