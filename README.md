@@ -40,4 +40,4 @@ Incluye:
 1. **Clonar el repositorio**
    ```bash
    git clone https://github.com/marixxa24/LogistiTrack.git
->>>>>>> 3d5418d76df3ab184ef084d692ff267a79f0bf68
+
