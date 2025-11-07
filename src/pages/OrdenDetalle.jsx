@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   Container,
   Typography,
@@ -9,12 +9,12 @@ import {
   Button,
   Paper,
   Chip,
-  Divider
-} from '@mui/material';
-import { ArrowBack, Edit, Delete } from '@mui/icons-material';
-import OrdenForm from '../components/OrderForm.jsx';
-import { useOrdenContext } from '../context/OrdenContext';
-import * as ordenService from '../services/ordenService';
+  Divider,
+} from "@mui/material";
+import { ArrowBack, Edit, Delete } from "@mui/icons-material";
+import OrdenForm from "../components/OrderForm.jsx";
+import { useOrdenContext } from "../context/OrdenContext";
+import * as ordenService from "../services/ordenService";
 
 const OrdenDetalle = () => {
   const { id } = useParams();
@@ -32,7 +32,7 @@ const OrdenDetalle = () => {
       const data = await ordenService.obtenerOrdenPorId(id);
       setOrden(data);
     } catch (err) {
-      setError('Error al cargar la orden');
+      setError("Error al cargar la orden");
       console.error(err);
     } finally {
       setLoading(false);
@@ -53,18 +53,18 @@ const OrdenDetalle = () => {
       cargarOrden();
       setTimeout(() => setSuccess(false), 3000);
     } catch (err) {
-      setError('Error al actualizar la orden');
+      setError("Error al actualizar la orden");
       console.error(err);
     }
   };
 
   const handleEliminar = async () => {
-    if (window.confirm('¿Estás seguro de eliminar esta orden?')) {
+    if (window.confirm("¿Estás seguro de eliminar esta orden?")) {
       try {
         await eliminarOrden(id);
-        navigate('/');
+        navigate("/");
       } catch (err) {
-        setError('Error al eliminar la orden');
+        setError("Error al eliminar la orden");
         console.error(err);
       }
     }
@@ -72,14 +72,14 @@ const OrdenDetalle = () => {
 
   const getEstadoColor = (estado) => {
     switch (estado) {
-      case 'Pendiente':
-        return 'warning';
-      case 'En tránsito':
-        return 'info';
-      case 'Entregado':
-        return 'success';
+      case "Pendiente":
+        return "warning";
+      case "En tránsito":
+        return "info";
+      case "Entregado":
+        return "success";
       default:
-        return 'default';
+        return "default";
     }
   };
 
@@ -87,15 +87,15 @@ const OrdenDetalle = () => {
     return (
       <Box
         sx={{
-          width: '100vw',
-          height: 'calc(100vh - 64px)',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          background: 'linear-gradient(135deg, #fff5f5 0%, #ffeaea 100%)',
+          width: "100vw",
+          height: "calc(100vh - 64px)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          background: "linear-gradient(135deg, #fff5f5 0%, #ffeaea 100%)",
         }}
       >
-        <CircularProgress sx={{ color: '#CB041A' }} />
+        <CircularProgress sx={{ color: "#CB041A" }} />
       </Box>
     );
   }
@@ -104,13 +104,13 @@ const OrdenDetalle = () => {
     return (
       <Box
         sx={{
-          width: '100vw',
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          background: 'linear-gradient(135deg, #fff5f5 0%, #ffeaea 100%)',
+          width: "100vw",
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          background: "linear-gradient(135deg, #fff5f5 0%, #ffeaea 100%)",
           py: 4,
         }}
       >
@@ -120,10 +120,10 @@ const OrdenDetalle = () => {
         <Button
           variant="contained"
           startIcon={<ArrowBack />}
-          onClick={() => navigate('/')}
+          onClick={() => navigate("/")}
           sx={{
-            backgroundColor: '#CB041A',
-            '&:hover': { backgroundColor: '#b71c1c' },
+            backgroundColor: "#CB041A",
+            "&:hover": { backgroundColor: "#b71c1c" },
           }}
         >
           Volver al Inicio
@@ -135,22 +135,22 @@ const OrdenDetalle = () => {
   return (
     <Box
       sx={{
-        width: '100vw',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        background: 'linear-gradient(135deg, #fff5f5 0%, #ffeaea 100%)',
+        width: "100vw",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        background: "linear-gradient(135deg, #fff5f5 0%, #ffeaea 100%)",
         py: 4,
       }}
     >
       <Container
         maxWidth="md"
         sx={{
-          backgroundColor: '#fff',
+          backgroundColor: "#fff",
           borderRadius: 3,
           p: 4,
-          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
         }}
       >
         {/* Encabezado */}
@@ -162,11 +162,11 @@ const OrdenDetalle = () => {
         >
           <Button
             startIcon={<ArrowBack />}
-            onClick={() => navigate('/')}
+            onClick={() => navigate("/")}
             sx={{
-              color: '#CB041A',
+              color: "#CB041A",
               fontWeight: 600,
-              '&:hover': { backgroundColor: 'rgba(203,4,26,0.1)' },
+              "&:hover": { backgroundColor: "rgba(203,4,26,0.1)" },
             }}
           >
             Volver
@@ -179,12 +179,12 @@ const OrdenDetalle = () => {
                 startIcon={<Edit />}
                 onClick={() => setModoEdicion(true)}
                 sx={{
-                  borderColor: '#CB041A',
-                  color: '#CB041A',
+                  borderColor: "#CB041A",
+                  color: "#CB041A",
                   mr: 1,
-                  '&:hover': {
-                    borderColor: '#b71c1c',
-                    backgroundColor: 'rgba(203,4,26,0.05)',
+                  "&:hover": {
+                    borderColor: "#b71c1c",
+                    backgroundColor: "rgba(203,4,26,0.05)",
                   },
                 }}
               >
@@ -196,8 +196,8 @@ const OrdenDetalle = () => {
                 startIcon={<Delete />}
                 onClick={handleEliminar}
                 sx={{
-                  backgroundColor: '#CB041A',
-                  '&:hover': { backgroundColor: '#b71c1c' },
+                  backgroundColor: "#CB041A",
+                  "&:hover": { backgroundColor: "#b71c1c" },
                 }}
               >
                 Eliminar
@@ -231,11 +231,11 @@ const OrdenDetalle = () => {
               onClick={() => setModoEdicion(false)}
               sx={{
                 mt: 2,
-                borderColor: '#CB041A',
-                color: '#CB041A',
-                '&:hover': {
-                  borderColor: '#b71c1c',
-                  backgroundColor: 'rgba(203,4,26,0.05)',
+                borderColor: "#CB041A",
+                color: "#CB041A",
+                "&:hover": {
+                  borderColor: "#b71c1c",
+                  backgroundColor: "rgba(203,4,26,0.05)",
                 },
               }}
               fullWidth
@@ -255,8 +255,8 @@ const OrdenDetalle = () => {
                 variant="h5"
                 sx={{
                   fontWeight: 700,
-                  color: '#CB041A',
-                  textShadow: '1px 1px 3px rgba(0,0,0,0.1)',
+                  color: "#CB041A",
+                  textShadow: "1px 1px 3px rgba(0,0,0,0.1)",
                 }}
               >
                 Detalle de la Orden
@@ -293,15 +293,25 @@ const OrdenDetalle = () => {
               </Typography>
             </Box>
 
-            <Box>
+            <Box sx={{ mb: 2 }}>
               <Typography variant="subtitle2" color="text.secondary">
-                ID de la Orden
+                Contenido
+              </Typography>
+              <Typography variant="body1">{orden.contenido}</Typography>
+            </Box>
+
+            <Box sx={{ mb: 2 }}>
+              <Typography variant="subtitle2" color="text.secondary">
+                Costo Logístico
               </Typography>
               <Typography
-                variant="body2"
-                sx={{ fontFamily: 'monospace', color: 'gray' }}
+                variant="body1"
+                sx={{
+                  fontWeight: 600,
+                  color: "#CB041A",
+                }}
               >
-                {orden._id}
+                💰 ${orden.costo?.toLocaleString("es-AR") || "No especificado"}
               </Typography>
             </Box>
           </Paper>

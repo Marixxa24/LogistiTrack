@@ -10,11 +10,31 @@ const CrearOrden = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
+  //  Función para calcular costo según destino
+  const calcularCosto = (destino) => {
+    if (!destino) return 2500;
+
+    const destinoLower = destino.toLowerCase();
+    if (destinoLower.includes("buenos aires")) return 5000;
+    if (destinoLower.includes("cordoba")) return 4000;
+    if (destinoLower.includes("la rioja")) return 3500;
+    if (destinoLower.includes("catamarca")) return 3000;
+    return 2500; // costo base
+  };
+
   const handleSubmit = async (formData) => {
     try {
       setError(null);
-      await crearOrden(formData);
+
+      // agrega el costo antes de enviar al backend
+      const nuevaOrden = {
+        ...formData,
+        costo: calcularCosto(formData.destino),
+      };
+
+      await crearOrden(nuevaOrden);
       setSuccess(true);
+
       setTimeout(() => {
         navigate('/');
       }, 1500);
@@ -55,8 +75,12 @@ const CrearOrden = () => {
           gap={2}
           mb={4}
         >
-          <Typography variant="h4" component="h1" sx={{ fontWeight: 600, color: '#CB041A' }}>
-             ✍🏻Crear Nueva Orden
+          <Typography
+            variant="h4"
+            component="h1"
+            sx={{ fontWeight: 600, color: '#CB041A' }}
+          >
+            ✍🏻 Crear Nueva Orden
           </Typography>
         </Box>
 
