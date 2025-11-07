@@ -6,7 +6,7 @@ Permite crear, editar, eliminar y filtrar órdenes en tiempo real, conectándose
 ![paginagit](https://github.com/user-attachments/assets/c0fb545a-78a9-41d7-847c-db00d9e71997)
 
 
-## 🧭 Descripción General
+## Descripción General
 
 **LogistiTrack** es una herramienta moderna que simplifica el seguimiento de envíos y entregas logísticas.  
 La app se conecta directamente a una API real (sin datos locales ni mocks) para gestionar las órdenes de manera eficiente, clara y visual.
@@ -20,7 +20,7 @@ Incluye:
 - 🔔 Notificaciones visuales y alertas de éxito/error.
 
 
-## 🧠 Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 ### Frontend
 - ⚛️ **React 18**
@@ -35,7 +35,7 @@ Incluye:
 - 🌐 **CORS, dotenv y Mongoose**
 
 
-## 🧰 Instalación y Ejecución
+## Instalación y Ejecución
 
 1. **Clonar el repositorio**
    ```bash
