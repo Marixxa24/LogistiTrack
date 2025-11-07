@@ -98,24 +98,21 @@ front-logistica/
 └── README.md
 
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/c0fb545a-78a9-41d7-847c-db00d9e71997" alt="Vista general de LogistiTrack" width="800"/>
-</p>
-
 >  *Interfaz principal mostrando el listado y filtrado de órdenes.*
 
-##  Funcionalidades Principales
+## 🚀 Funcionalidades Principales
 
-| Función                   | Descripción                                              |
-| :------------------------ | :------------------------------------------------------- |
-| 🆕 **Crear Orden**        | Permite agregar una nueva orden con datos personalizados |
-| ✏️ **Editar Orden**       | Modifica información existente                           |
-| ❌ **Eliminar Orden**      | Elimina una orden con confirmación previa                |
-| 🔍 **Filtrar por Estado** | Filtra resultados según el estado de la entrega          |
-| 📄 **Ver Detalle**        | Visualiza la información completa de una orden           |
-| 🔔 **Alertas Visuales**   | Feedback inmediato en acciones de usuario                |
+| Función                            | Descripción                                                                                                                                                          
+|                                    | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🆕 **Crear Orden**                | Permite registrar una nueva orden con destino, contenido, peso y estado.                                                                                             |
+| 💰 **Cálculo de Costo Logístico** | Calcula automáticamente el costo de envío según la provincia de destino y el peso del paquete. El valor se actualiza en tiempo real mientras se completan los datos. |
+| ✏️ **Editar Orden**               | Modifica cualquier información existente, incluido el costo si cambian destino o peso.                                                                               |
+| ❌ **Eliminar Orden**             | Elimina una orden con confirmación previa para evitar eliminaciones accidentales.                                                                                    |
+| 🔍 **Filtrar por Estado**         | Permite visualizar fácilmente órdenes Pendientes, En tránsito o Entregadas.                                                                                          |
+| 📄 **Ver Detalle Completo**       | Muestra todos los datos de la orden, incluyendo fecha, ID, destino, peso y costo calculado.                                                                          |
+| 🔔 **Alertas Visuales**           | Proporciona notificaciones claras de éxito o error al realizar acciones.                                                                                             |
+| ⚡ **Actualización Automática**   | Refresca los listados dinámicamente sin recargar la página.                                                                                                          |
 
----
 
 ##  Próximas Mejoras
 
@@ -123,9 +120,6 @@ front-logistica/
 * 📱 Mejora del diseño responsive en móviles
 * 🚚 Seguimiento en tiempo real de envíos
 * 📨 Notificaciones push con estados de entrega
-* 🌍 Despliegue completo en Vercel + Render
-
----
 
 ##  Desarrollado por
 
