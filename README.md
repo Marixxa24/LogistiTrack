@@ -3,8 +3,8 @@
 Aplicación web desarrollada con **React** y **Material UI** para la gestión de órdenes de logística.  
 Permite crear, editar, eliminar y filtrar órdenes en tiempo real, conectándose a una **API REST** construida en **Node.js + Express + MongoDB**.
 
+![paginagit](https://github.com/user-attachments/assets/c0fb545a-78a9-41d7-847c-db00d9e71997)
 
-<img width="1857" height="907" alt="image" src="https://github.com/user-attachments/assets/73b03faf-1793-4518-9b86-cd5fae2121ad" />
 
 ## 🧭 Descripción General
 
