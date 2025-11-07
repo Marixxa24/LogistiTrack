@@ -98,8 +98,6 @@ front-logistica/
 └── README.md
 
 
->  *Interfaz principal mostrando el listado y filtrado de órdenes.*
-
 ## 🚀 Funcionalidades Principales
 
 | Función                            | Descripción                                                                                                                                                          
