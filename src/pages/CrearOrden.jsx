@@ -11,38 +11,50 @@ const CrearOrden = () => {
   const [success, setSuccess] = useState(false);
 
   //  Función para calcular costo según destino
-  const calcularCosto = (destino) => {
-    if (!destino) return 2500;
+const calcularCosto = (destino, peso = 1) => {
+  if (!destino) return 2500;
 
-    const destinoLower = destino.toLowerCase();
-    if (destinoLower.includes("buenos aires")) return 5000;
-    if (destinoLower.includes("cordoba")) return 4000;
-    if (destinoLower.includes("la rioja")) return 3500;
-    if (destinoLower.includes("catamarca")) return 3000;
-    return 2500; // costo base
-  };
+  const destinoLower = destino.toLowerCase();
+  let base = 2500;
+
+  if (destinoLower.includes("buenos aires")) base = 5000;
+  else if (destinoLower.includes("cordoba")) base = 4000;
+  else if (destinoLower.includes("la rioja")) base = 3500;
+  else if (destinoLower.includes("catamarca")) base = 3000;
+
+  const costoPeso = parseFloat(peso) * 600; // 💰 600 por kg
+  return base + costoPeso;
+};
+
 
   const handleSubmit = async (formData) => {
-    try {
-      setError(null);
+  try {
+    setError(null);
 
-      // agrega el costo antes de enviar al backend
-      const nuevaOrden = {
-        ...formData,
-        costo: calcularCosto(formData.destino),
-      };
-
-      await crearOrden(nuevaOrden);
-      setSuccess(true);
-
-      setTimeout(() => {
-        navigate('/');
-      }, 1500);
-    } catch (err) {
-      setError('Error al crear la orden. Por favor, intente nuevamente.');
-      console.error(err);
+    // ✅ Validar y convertir el peso a número
+    const pesoNum = parseFloat(formData.peso);
+    if (isNaN(pesoNum) || pesoNum <= 0) {
+      setError("El peso debe ser un número mayor que 0.");
+      return;
     }
-  };
+
+    // ✅ Calcular el costo con destino + peso
+    const nuevaOrden = {
+      ...formData,
+      peso: pesoNum,
+      costo: calcularCosto(formData.destino, pesoNum),
+    };
+
+    await crearOrden(nuevaOrden);
+    setSuccess(true);
+
+    setTimeout(() => navigate("/"), 1500);
+  } catch (err) {
+    setError("Error al crear la orden. Por favor, intente nuevamente.");
+    console.error(err);
+  }
+};
+
 
   return (
     <Box
