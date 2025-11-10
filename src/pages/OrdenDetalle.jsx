@@ -293,12 +293,12 @@ const OrdenDetalle = () => {
               </Typography>
             </Box>
 
-            <Box sx={{ mb: 2 }}>
+            {/* <Box sx={{ mb: 2 }}>
               <Typography variant="subtitle2" color="text.secondary">
                 Contenido
               </Typography>
               <Typography variant="body1">{orden.contenido}</Typography>
-            </Box>
+            </Box> */}
 
             <Box sx={{ mb: 2 }}>
               <Typography variant="subtitle2" color="text.secondary">
